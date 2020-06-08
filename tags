@@ -14,14 +14,39 @@ ApplicationController	app/controllers/application_controller.rb	/^class Applicat
 ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
 ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
 ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+Book	app/models/book.rb	/^class Book < ApplicationRecord$/;"	c
+Book, type: :model	spec/models/book_spec.rb	/^RSpec.describe Book, type: :model do$/;"	d
+BooksController	app/controllers/books_controller.rb	/^class BooksController < ApplicationController$/;"	c
 Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	module:ApplicationCable
+Comment	app/models/comment.rb	/^class Comment < ApplicationRecord$/;"	c
+Comment, type: :model	spec/models/comment_spec.rb	/^RSpec.describe Comment, type: :model do$/;"	d
+CommentsController	app/controllers/comments_controller.rb	/^class CommentsController < ApplicationController$/;"	c
 Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	module:ApplicationCable
+CreateBooks	db/migrate/20200608101145_create_books.rb	/^class CreateBooks < ActiveRecord::Migration[6.0]$/;"	c
+CreateComments	db/migrate/20200608101153_create_comments.rb	/^class CreateComments < ActiveRecord::Migration[6.0]$/;"	c
+CreatePublishers	db/migrate/20200608101222_create_publishers.rb	/^class CreatePublishers < ActiveRecord::Migration[6.0]$/;"	c
+CreateUsers	db/migrate/20200608101127_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[6.0]$/;"	c
+CreateWishLists	db/migrate/20200608101233_create_wish_lists.rb	/^class CreateWishLists < ActiveRecord::Migration[6.0]$/;"	c
 Library	config/application.rb	/^module Library$/;"	m
+Publisher	app/models/publisher.rb	/^class Publisher < ApplicationRecord$/;"	c
+Publisher, type: :model	spec/models/publisher_spec.rb	/^RSpec.describe Publisher, type: :model do$/;"	d
+PublishersController	app/controllers/publishers_controller.rb	/^class PublishersController < ApplicationController$/;"	c
 README	README.md	/^# README$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+User, type: :model	spec/models/user_spec.rb	/^RSpec.describe User, type: :model do$/;"	d
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+WishList	app/models/wish_list.rb	/^class WishList < ApplicationRecord$/;"	c
+WishList, type: :model	spec/models/wish_list_spec.rb	/^RSpec.describe WishList, type: :model do$/;"	d
+WishListsController	app/controllers/wish_lists_controller.rb	/^class WishListsController < ApplicationController$/;"	c
 activate_bundler	bin/bundle	/^  def activate_bundler$/;"	f
 activation_error_handling	bin/bundle	/^  def activation_error_handling$/;"	f
 bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	bin/bundle	/^  def bundler_version$/;"	f
+change	db/migrate/20200608101127_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20200608101145_create_books.rb	/^  def change$/;"	f	class:CreateBooks
+change	db/migrate/20200608101153_create_comments.rb	/^  def change$/;"	f	class:CreateComments
+change	db/migrate/20200608101222_create_publishers.rb	/^  def change$/;"	f	class:CreatePublishers
+change	db/migrate/20200608101233_create_wish_lists.rb	/^  def change$/;"	f	class:CreateWishLists
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 gemfile	bin/bundle	/^  def gemfile$/;"	f
