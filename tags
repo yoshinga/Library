@@ -25,6 +25,7 @@ Connection	app/channels/application_cable/connection.rb	/^  class Connection < A
 CreateBooks	db/migrate/20200608101145_create_books.rb	/^class CreateBooks < ActiveRecord::Migration[6.0]$/;"	c
 CreateComments	db/migrate/20200608101153_create_comments.rb	/^class CreateComments < ActiveRecord::Migration[6.0]$/;"	c
 CreatePublishers	db/migrate/20200608101222_create_publishers.rb	/^class CreatePublishers < ActiveRecord::Migration[6.0]$/;"	c
+CreateTokens	db/migrate/20200612001120_create_tokens.rb	/^class CreateTokens < ActiveRecord::Migration[6.0]$/;"	c
 CreateUsers	db/migrate/20200608101127_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[6.0]$/;"	c
 CreateWishLists	db/migrate/20200608101233_create_wish_lists.rb	/^class CreateWishLists < ActiveRecord::Migration[6.0]$/;"	c
 Library	config/application.rb	/^module Library$/;"	m
@@ -32,6 +33,8 @@ Publisher	app/models/publisher.rb	/^class Publisher < ApplicationRecord$/;"	c
 Publisher, type: :model	spec/models/publisher_spec.rb	/^RSpec.describe Publisher, type: :model do$/;"	d
 PublishersController	app/controllers/publishers_controller.rb	/^class PublishersController < ApplicationController$/;"	c
 README	README.md	/^# README$/;"	c
+Token	app/models/token.rb	/^class Token < ApplicationRecord$/;"	c
+Token, type: :model	spec/models/token_spec.rb	/^RSpec.describe Token, type: :model do$/;"	d
 User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
 User, type: :model	spec/models/user_spec.rb	/^RSpec.describe User, type: :model do$/;"	d
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
@@ -40,6 +43,9 @@ WishList, type: :model	spec/models/wish_list_spec.rb	/^RSpec.describe WishList, 
 WishListsController	app/controllers/wish_lists_controller.rb	/^class WishListsController < ApplicationController$/;"	c
 activate_bundler	bin/bundle	/^  def activate_bundler$/;"	f
 activation_error_handling	bin/bundle	/^  def activation_error_handling$/;"	f
+authenticate	app/controllers/application_controller.rb	/^  def authenticate$/;"	f	class:ApplicationController
+authenticate?	app/models/token.rb	/^  def self.authenticate?(token)$/;"	S	class:Token
+authenticate_token	app/controllers/application_controller.rb	/^  def authenticate_token$/;"	f	class:ApplicationController
 bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	bin/bundle	/^  def bundler_version$/;"	f
 change	db/migrate/20200608101127_create_users.rb	/^  def change$/;"	f	class:CreateUsers
@@ -47,11 +53,20 @@ change	db/migrate/20200608101145_create_books.rb	/^  def change$/;"	f	class:Crea
 change	db/migrate/20200608101153_create_comments.rb	/^  def change$/;"	f	class:CreateComments
 change	db/migrate/20200608101222_create_publishers.rb	/^  def change$/;"	f	class:CreatePublishers
 change	db/migrate/20200608101233_create_wish_lists.rb	/^  def change$/;"	f	class:CreateWishLists
+change	db/migrate/20200612001120_create_tokens.rb	/^  def change$/;"	f	class:CreateTokens
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+create_params	app/controllers/users_controller.rb	/^  def create_params$/;"	f	class:UsersController
+destroy	app/controllers/users_controller.rb	/^  def destroy; end$/;"	f	class:UsersController
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 gemfile	bin/bundle	/^  def gemfile$/;"	f
+index	app/controllers/books_controller.rb	/^  def index; end$/;"	f	class:BooksController
 invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
 load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
+render_unthorized	app/controllers/application_controller.rb	/^  def render_unthorized$/;"	f	class:ApplicationController
+rewrite_digest_hash	app/models/token.rb	/^  def rewrite_digest_hash$/;"	f	class:Token
+show	app/controllers/users_controller.rb	/^  def show; end$/;"	f	class:UsersController
 system!	bin/setup	/^def system!(*args)$/;"	f
+update	app/controllers/users_controller.rb	/^  def update; end$/;"	f	class:UsersController
