@@ -1,16 +1,42 @@
 class UsersController < ApplicationController
+  before_action :set_user, except: [:create]
+
+  attr_reader :user
+
   def create
-    created_user = User.create(create_params)
+    created_user = User.create(user_params)
     render json: created_user, status: :created
+  rescue => e
+    render json: "error: #{e}", status: :bad_request
   end
 
-  def show; end
-  def update; end
-  def destroy; end
+  def show
+    render json: user, status: :ok
+  end
+
+  def update
+    user.update(user_params)
+    render json: '', status: :no_content
+  rescue => e
+    render json: "error: #{e}", status: :bad_request
+  end
+
+  def destroy
+    result = user.destroy
+    if result
+      render json: '', status: :no_content
+    else
+      render json: '', status: :accepted
+    end
+  end
 
   private
 
-  def create_params
-    params.require(:users).permit(:user_id, :role, :nickname)
+  def user_params
+    params.require(:users).permit(:uid, :role, :nickname)
+  end
+
+  def set_user
+    @user ||= User.find_by(uid: params[:id])
   end
 end
