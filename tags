@@ -7,6 +7,7 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/a3ea49f/
+#create	spec/requests/users_request_spec.rb	/^  describe '#create' do$/;"	d
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	module:Library
 ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
 ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
@@ -65,7 +66,7 @@ invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
 load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
-render_unthorized	app/controllers/application_controller.rb	/^  def render_unthorized$/;"	f	class:ApplicationController
+render_unauthorized	app/controllers/application_controller.rb	/^  def render_unauthorized$/;"	f	class:ApplicationController
 rewrite_digest_hash	app/models/token.rb	/^  def rewrite_digest_hash$/;"	f	class:Token
 show	app/controllers/users_controller.rb	/^  def show; end$/;"	f	class:UsersController
 system!	bin/setup	/^def system!(*args)$/;"	f

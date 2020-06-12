@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def render_unthorized
+  def render_unauthorized
     render json: { message: 'token invalid' }, status: :unauthorized
   end
 end
