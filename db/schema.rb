@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_001120) do
     t.string "link"
     t.datetime "latest_rent_date"
     t.datetime "return_date"
-    t.datetime "purchage_date"
+    t.datetime "purchase_date"
     t.datetime "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

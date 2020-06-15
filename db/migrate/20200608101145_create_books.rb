@@ -11,7 +11,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string :link
       t.datetime :latest_rent_date
       t.datetime :return_date
-      t.datetime :purchage_date
+      t.datetime :purchase_date
       t.datetime :publication_date
       t.timestamps
     end
