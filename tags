@@ -7,7 +7,20 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/a3ea49f/
+#create	spec/requests/books_request_spec.rb	/^  describe '#create' do$/;"	d
+#create	spec/requests/publishers_request_spec.rb	/^  describe '#create' do$/;"	d
 #create	spec/requests/users_request_spec.rb	/^  describe '#create' do$/;"	d
+#destroy	spec/requests/books_request_spec.rb	/^  describe '#destroy' do$/;"	d
+#destroy	spec/requests/publishers_request_spec.rb	/^  describe '#destroy' do$/;"	d
+#destroy	spec/requests/users_request_spec.rb	/^  describe '#destroy' do$/;"	d
+#index	spec/requests/books_request_spec.rb	/^  describe '#index' do$/;"	d
+#index	spec/requests/publishers_request_spec.rb	/^  describe '#index' do$/;"	d
+#show	spec/requests/books_request_spec.rb	/^  describe '#show' do$/;"	d
+#show	spec/requests/publishers_request_spec.rb	/^  describe '#show' do$/;"	d
+#show	spec/requests/users_request_spec.rb	/^  describe '#show' do$/;"	d
+#update	spec/requests/books_request_spec.rb	/^  describe '#update' do$/;"	d
+#update	spec/requests/publishers_request_spec.rb	/^  describe '#update' do$/;"	d
+#update	spec/requests/users_request_spec.rb	/^  describe '#update' do$/;"	d
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	module:Library
 ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
 ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
@@ -17,6 +30,7 @@ ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < 
 ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
 Book	app/models/book.rb	/^class Book < ApplicationRecord$/;"	c
 Book, type: :model	spec/models/book_spec.rb	/^RSpec.describe Book, type: :model do$/;"	d
+BookSerializer	app/serializers/book_serializer.rb	/^class BookSerializer < ActiveModel::Serializer$/;"	c
 BooksController	app/controllers/books_controller.rb	/^class BooksController < ApplicationController$/;"	c
 Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	module:ApplicationCable
 Comment	app/models/comment.rb	/^class Comment < ApplicationRecord$/;"	c
@@ -29,6 +43,7 @@ CreatePublishers	db/migrate/20200608101222_create_publishers.rb	/^class CreatePu
 CreateTokens	db/migrate/20200612001120_create_tokens.rb	/^class CreateTokens < ActiveRecord::Migration[6.0]$/;"	c
 CreateUsers	db/migrate/20200608101127_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[6.0]$/;"	c
 CreateWishLists	db/migrate/20200608101233_create_wish_lists.rb	/^class CreateWishLists < ActiveRecord::Migration[6.0]$/;"	c
+JsonApiHelpers	spec/support/json_spi_helpers.rb	/^module JsonApiHelpers$/;"	m
 Library	config/application.rb	/^module Library$/;"	m
 Publisher	app/models/publisher.rb	/^class Publisher < ApplicationRecord$/;"	c
 Publisher, type: :model	spec/models/publisher_spec.rb	/^RSpec.describe Publisher, type: :model do$/;"	d
@@ -47,6 +62,7 @@ activation_error_handling	bin/bundle	/^  def activation_error_handling$/;"	f
 authenticate	app/controllers/application_controller.rb	/^  def authenticate$/;"	f	class:ApplicationController
 authenticate?	app/models/token.rb	/^  def self.authenticate?(token)$/;"	S	class:Token
 authenticate_token	app/controllers/application_controller.rb	/^  def authenticate_token$/;"	f	class:ApplicationController
+book_params	app/controllers/books_controller.rb	/^  def book_params$/;"	f	class:BooksController
 bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	bin/bundle	/^  def bundler_version$/;"	f
 change	db/migrate/20200608101127_create_users.rb	/^  def change$/;"	f	class:CreateUsers
@@ -56,18 +72,36 @@ change	db/migrate/20200608101222_create_publishers.rb	/^  def change$/;"	f	class
 change	db/migrate/20200608101233_create_wish_lists.rb	/^  def change$/;"	f	class:CreateWishLists
 change	db/migrate/20200612001120_create_tokens.rb	/^  def change$/;"	f	class:CreateTokens
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
+create	app/controllers/books_controller.rb	/^  def create$/;"	f	class:BooksController
+create	app/controllers/publishers_controller.rb	/^  def create$/;"	f	class:PublishersController
 create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
-create_params	app/controllers/users_controller.rb	/^  def create_params$/;"	f	class:UsersController
-destroy	app/controllers/users_controller.rb	/^  def destroy; end$/;"	f	class:UsersController
+destroy	app/controllers/books_controller.rb	/^  def destroy$/;"	f	class:BooksController
+destroy	app/controllers/publishers_controller.rb	/^  def destroy$/;"	f	class:PublishersController
+destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 gemfile	bin/bundle	/^  def gemfile$/;"	f
-index	app/controllers/books_controller.rb	/^  def index; end$/;"	f	class:BooksController
+index	app/controllers/books_controller.rb	/^  def index$/;"	f	class:BooksController
+index	app/controllers/publishers_controller.rb	/^  def index$/;"	f	class:PublishersController
 invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
+json	spec/support/json_spi_helpers.rb	/^  def json$/;"	f	module:JsonApiHelpers
+json_data	spec/support/json_spi_helpers.rb	/^  def json_data$/;"	f	module:JsonApiHelpers
 load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
+predictive_search	app/controllers/books_controller.rb	/^  def predictive_search; end$/;"	f	class:BooksController
+publisher_params	app/controllers/publishers_controller.rb	/^  def publisher_params$/;"	f	class:PublishersController
 render_unauthorized	app/controllers/application_controller.rb	/^  def render_unauthorized$/;"	f	class:ApplicationController
 rewrite_digest_hash	app/models/token.rb	/^  def rewrite_digest_hash$/;"	f	class:Token
-show	app/controllers/users_controller.rb	/^  def show; end$/;"	f	class:UsersController
+set_book	app/controllers/books_controller.rb	/^  def set_book$/;"	f	class:BooksController
+set_publisher	app/controllers/publishers_controller.rb	/^  def set_publisher$/;"	f	class:PublishersController
+set_user	app/controllers/users_controller.rb	/^  def set_user$/;"	f	class:UsersController
+show	app/controllers/books_controller.rb	/^  def show$/;"	f	class:BooksController
+show	app/controllers/publishers_controller.rb	/^  def show$/;"	f	class:PublishersController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
 system!	bin/setup	/^def system!(*args)$/;"	f
-update	app/controllers/users_controller.rb	/^  def update; end$/;"	f	class:UsersController
+update	app/controllers/books_controller.rb	/^  def update$/;"	f	class:BooksController
+update	app/controllers/publishers_controller.rb	/^  def update$/;"	f	class:PublishersController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+user_params	app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController
+when correct parameter	spec/requests/publishers_request_spec.rb	/^    context 'when correct parameter' do$/;"	c
+when incorrect params	spec/requests/publishers_request_spec.rb	/^    context 'when incorrect params' do$/;"	c

@@ -28,7 +28,13 @@ class BooksController < ApplicationController
     render json: "error: #{e}", status: :bad_request
   end
 
+  def destroy
+    book.destroy
+  end
+
   private
+
+  def predictive_search; end
 
   def set_book
     @book ||= Book.find(params[:id])

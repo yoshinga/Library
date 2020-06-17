@@ -132,4 +132,20 @@ RSpec.describe "Books", type: :request do
       expect(json_data["attributes"]["rent-user-id"]).to eq(new_rent_user.id)
     end
   end
+
+  describe '#destroy' do
+    subject do
+      delete book_path(book.id), headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should return 204 status' do
+      subject
+      expect(response.status).to eq(204)
+    end
+
+    it 'should delete a book' do
+      book
+      expect{ subject }.to change(Book, :count).by(-1)
+    end
+  end
 end
