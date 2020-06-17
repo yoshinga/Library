@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_001120) do
+ActiveRecord::Schema.define(version: 2020_06_17_020211) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "status", default: 1, null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_001120) do
     t.datetime "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["owner_id"], name: "index_books_on_owner_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
     t.index ["purchaser_id"], name: "index_books_on_purchaser_id"
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_001120) do
     t.datetime "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 
