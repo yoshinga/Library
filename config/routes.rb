@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :books
   resources :publishers
+  resources :comments, only: [:create, :update, :destroy]
 end
