@@ -123,8 +123,7 @@ RSpec.describe "Publishers", type: :request do
       end
 
       it 'should not update a publisher' do
-        subject
-        expect(Publisher.find(publisher.id).publisher).to eq("出版社")
+        expect{ subject }.not_to change(Publisher.find(publisher.id), :publisher)
       end
     end
   end

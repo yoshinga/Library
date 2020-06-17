@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :books
   resources :publishers
   resources :comments, only: [:create, :update, :destroy]
+  resources :wish_lists
 end
