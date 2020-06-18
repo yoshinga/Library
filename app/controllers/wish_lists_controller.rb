@@ -37,7 +37,7 @@ class WishListsController < ApplicationController
   def set_wish_list
     @wish_list ||= WishList.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    render json: "error: there is no wish_list for id=#{params[:id]}"
+    render json: "error: there is no wish_list for id=#{params[:id]}", status: :bad_request
   end
 
   def wish_list_params
