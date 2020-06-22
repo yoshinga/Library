@@ -71,6 +71,7 @@ RSpec.describe "Books", type: :request do
             purchaser_id: purchaser.id,
             status: '0',
             price: '1500',
+            title: '',
             author: '',
             link: '',
             latest_rent_date: '',
