@@ -18,9 +18,7 @@ class BooksController < ApplicationController
     # items = predictive_search["items"].first(5)
     # items_volume = items.map{ |item| item["volumeInfo"] }
 
-    binding.pry
     created_book = Book.create!(book_params)
-    binding.pry
 
     # created_book = Book.create! do |book|
     #   book.title = items_volume[1]["title"]
@@ -36,7 +34,6 @@ class BooksController < ApplicationController
 
     render json: created_book, status: :created
   rescue => e
-    binding.pry
     render json: "error: #{e}", status: :bad_request
   end
 
@@ -92,7 +89,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    binding.pry
     params.require(:data).require(:attributes).
       permit(
         :owner_id,
