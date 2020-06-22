@@ -15,8 +15,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    p params
-    p JSON.parse(params)
     # items = predictive_search["items"].first(5)
     # items_volume = items.map{ |item| item["volumeInfo"] }
 
@@ -91,8 +89,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:data).require(:attributes).
-      permit(
+    params.permit(
         :owner_id,
         :rent_user_id,
         :purchaser_id,
