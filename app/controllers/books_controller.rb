@@ -89,9 +89,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    puts "params #{params}"
-    puts "json_params #{JSON.parse(params)}"
-    puts params.require(:data).require(:attributes).
+    params.require(:data).require(:attributes).
       permit(
         :owner_id,
         :rent_user_id,
