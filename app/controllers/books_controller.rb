@@ -15,6 +15,8 @@ class BooksController < ApplicationController
   end
 
   def create
+    p params
+    p JSON.parse(params)
     # items = predictive_search["items"].first(5)
     # items_volume = items.map{ |item| item["volumeInfo"] }
 
