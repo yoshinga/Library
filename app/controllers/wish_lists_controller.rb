@@ -41,8 +41,7 @@ class WishListsController < ApplicationController
   end
 
   def wish_list_params
-    params.require(:data).require(:attributes).
-      permit(
+    params.permit(
         :user_id,
         :title,
         :author,
