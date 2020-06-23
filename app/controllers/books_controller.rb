@@ -92,8 +92,8 @@ class BooksController < ApplicationController
     logger.debug("logger: ===============#{params}================")
     json = params.as_json
     logger.debug("logger json: ===============#{json}================")
-    params.require(:data).require(:attributes).
-      permit(
+    binding.pry
+    params.permit(
         :owner_id,
         :rent_user_id,
         :purchaser_id,
