@@ -41,8 +41,7 @@ class PublishersController < ApplicationController
   end
 
   def publisher_params
-    params.require(:data).require(:attributes).
-      permit(
+    params.permit(
         :publisher,
     ) ||
     ActionController::Parameters.new

@@ -30,8 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:data).require(:attributes).
-      permit(
+    params.permit(
         :user_id,
         :book_id,
         :content,
