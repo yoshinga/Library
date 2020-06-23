@@ -109,5 +109,7 @@ class BooksController < ApplicationController
         :publication_date
     ) ||
     ActionController::Parameters.new
+  rescue => e
+    logger.debug(e)
   end
 end
