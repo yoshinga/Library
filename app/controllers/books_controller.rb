@@ -89,9 +89,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    logger.debug("logger: ===============#{params}================")
-    json = params.as_json
-    logger.debug("logger json: ===============#{json}================")
     params.permit(
         :owner_id,
         :rent_user_id,
@@ -108,7 +105,5 @@ class BooksController < ApplicationController
         :publication_date
     ) ||
     ActionController::Parameters.new
-  rescue => e
-    logger.debug("rescue: ==============#{e}================")
   end
 end
