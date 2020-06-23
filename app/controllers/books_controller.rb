@@ -89,7 +89,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    logger.debug("logger: ===============#{params}================")
+    logger.debug("logger: ===============#{JSON.parse(params)}================")
     params.require(:data).require(:attributes).
       permit(
         :owner_id,
