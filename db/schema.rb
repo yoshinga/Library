@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_020211) do
+ActiveRecord::Schema.define(version: 2020_06_24_001139) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "status", default: 1, null: false
@@ -19,15 +19,19 @@ ActiveRecord::Schema.define(version: 2020_06_17_020211) do
     t.bigint "owner_id"
     t.bigint "publisher_id"
     t.integer "price"
-    t.string "author"
-    t.string "link"
+    t.string "author", limit: 255
+    t.string "link", limit: 255
     t.datetime "latest_rent_date"
     t.datetime "return_date"
     t.datetime "purchase_date"
     t.datetime "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
+    t.string "title", limit: 255
+    t.string "rent_user"
+    t.string "purchaser"
+    t.string "owner"
+    t.string "publisher_name"
     t.index ["owner_id"], name: "index_books_on_owner_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
     t.index ["purchaser_id"], name: "index_books_on_purchaser_id"
@@ -37,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_020211) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.bigint "book_id"
     t.bigint "user_id"
-    t.string "content"
+    t.string "content", limit: 255
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_comments_on_book_id"
@@ -51,8 +55,8 @@ ActiveRecord::Schema.define(version: 2020_06_17_020211) do
   end
 
   create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "label", null: false
-    t.string "digest_hash", null: false
+    t.string "label", limit: 255, null: false
+    t.string "digest_hash", limit: 255, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["digest_hash"], name: "index_tokens_on_digest_hash", unique: true
@@ -60,9 +64,9 @@ ActiveRecord::Schema.define(version: 2020_06_17_020211) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "nickname"
+    t.string "nickname", limit: 255
     t.integer "role", default: 0, null: false
-    t.string "uid", null: false
+    t.string "uid", limit: 255, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,12 +74,12 @@ ActiveRecord::Schema.define(version: 2020_06_17_020211) do
   create_table "wish_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "price"
-    t.string "author"
-    t.string "link"
+    t.string "author", limit: 255
+    t.string "link", limit: 255
     t.datetime "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
+    t.string "title", limit: 255
     t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 

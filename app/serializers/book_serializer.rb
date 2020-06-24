@@ -1,9 +1,9 @@
 class BookSerializer < ActiveModel::Serializer
   attributes :id,
-    :owner_id,
-    :rent_user_id,
-    :purchaser_id,
-    :publisher_id,
+    :owner,
+    :rent_user,
+    :purchaser,
+    :publisher_name,
     :status,
     :title,
     :price,
