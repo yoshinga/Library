@@ -149,4 +149,33 @@ RSpec.describe "Books", type: :request do
       expect{ subject }.to change(Book, :count).by(-1)
     end
   end
+
+  describe '#rent_book' do
+    let(:owner) { create(:user) }
+    let(:valid_attributes) do
+      {
+        uid: owner.id,
+      }
+    end
+
+    subject do
+      patch rent_book_path(book.id), params: valid_attributes, headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should status 200' do
+      subject
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe '#return_book' do
+    subject do
+      patch return_book_path(book.id), headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should status 200' do
+      subject
+      expect(response.status).to eq(200)
+    end
+  end
 end

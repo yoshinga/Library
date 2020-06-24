@@ -53,9 +53,19 @@ class BooksController < ApplicationController
     book.destroy
   end
 
-  def rent_book; end
+  def rent_book
+    book.update_attribute(:rent_user_id, rent_params["uid"])
+    render status: :ok if book.rent_user_id == rent_params["uid"].to_i
+  rescue => e
+    render json: "error: #{e}", status: :bad_request
+  end
 
-  def return_book; end
+  def return_book
+    book.update_attribute(:rent_user_id, nil)
+    render status: :ok if book.rent_user_id == nil
+  rescue => e
+    render json: "error: #{e}", status: :bad_request
+  end
 
   private
 
@@ -114,5 +124,9 @@ class BooksController < ApplicationController
         :publication_date
     ) ||
     ActionController::Parameters.new
+  end
+
+  def rent_params
+    params.permit(:uid)
   end
 end
