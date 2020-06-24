@@ -53,6 +53,10 @@ class BooksController < ApplicationController
     book.destroy
   end
 
+  def rent_book; end
+
+  def return_book; end
+
   private
 
   def predictive_search
