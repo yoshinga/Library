@@ -8,8 +8,8 @@ class BooksController < ApplicationController
       page(params[:page]).
       per(params[:per_page])
     books.each do |b|
-      b.rent_user = User.find(b.rent_user_id) if b.rent_user_id
-      b.purchaser = User.find(b.purcharser_id) if b.purchaser_id
+      b.rent_user = User.find(b.rent_user_id).nickname if b.rent_user_id
+      b.purchaser = User.find(b.purcharser_id).nickname if b.purchaser_id
       b.publisher_name = b.publisher.publisher
     end
     render json: books
