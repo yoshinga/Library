@@ -54,7 +54,10 @@ class BooksController < ApplicationController
   end
 
   def rent_book
-    book.update_attribute(:rent_user_id, rent_params["uid"])
+    book.update_attribute(
+      :rent_user_id, rent_params["uid"],
+      :latest_rent_date, rent_params["latest_rent_date"]
+    )
     render status: :ok if book.rent_user_id == rent_params["uid"].to_i
   rescue => e
     render json: "error: #{e}", status: :bad_request
@@ -127,6 +130,6 @@ class BooksController < ApplicationController
   end
 
   def rent_params
-    params.permit(:uid)
+    params.permit(:uid, :latest_rent_date)
   end
 end
