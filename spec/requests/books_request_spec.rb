@@ -148,6 +148,7 @@ RSpec.describe "Books", type: :request do
     let(:valid_attributes) do
       {
         uid: owner.id,
+        latest_rent_date: '2020-06-25',
       }
     end
 
