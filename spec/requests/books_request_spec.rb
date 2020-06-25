@@ -63,23 +63,19 @@ RSpec.describe "Books", type: :request do
     let(:publisher) { create(:publisher) }
     let(:valid_attributes) do
       {
-        data: {
-          attributes: {
-            owner_id: owner.id,
-            publisher_id: publisher.id,
-            rent_user_id: rent_user.id,
-            purchaser_id: purchaser.id,
-            status: '0',
-            price: '1500',
-            title: '',
-            author: '',
-            link: '',
-            latest_rent_date: '',
-            return_date: '',
-            purchase_date: '',
-            publication_date: '',
-          }
-        }
+        owner_id: owner.id,
+        publisher_id: publisher.id,
+        rent_user_id: rent_user.id,
+        purchaser_id: purchaser.id,
+        status: '0',
+        price: '3740',
+        title: 'プログラミングTypeScript',
+        author: 'Boris Cherny',
+        link: 'https://www.oreilly.co.jp/books/9784873119045/',
+        latest_rent_date: '',
+        return_date: '',
+        purchase_date: '',
+        publication_date: '2020-03-23',
       }
     end
 
@@ -105,22 +101,19 @@ RSpec.describe "Books", type: :request do
     let(:new_rent_user) { create(:user) }
     let(:valid_attributes) do
       {
-        data: {
-          attributes: {
-            owner_id: owner.id,
-            publisher_id: publisher.id,
-            rent_user_id: new_rent_user.id,
-            purchaser_id: purchaser.id,
-            status: '0',
-            price: '1500',
-            author: '',
-            link: '',
-            latest_rent_date: '',
-            return_date: '',
-            purchase_date: '',
-            publication_date: '',
-          }
-        }
+        owner_id: owner.id,
+        publisher_id: publisher.id,
+        rent_user_id: new_rent_user.id,
+        purchaser_id: purchaser.id,
+        status: '0',
+        price: '3740',
+        title: 'Go言語でつくるインタプリタ',
+        author: 'Thorsten Ball',
+        link: 'https://www.oreilly.co.jp/books/9784873118222/',
+        latest_rent_date: '',
+        return_date: '',
+        purchase_date: '',
+        publication_date: '2018-06-03',
       }
     end
 
@@ -130,7 +123,7 @@ RSpec.describe "Books", type: :request do
 
     it 'should update a book' do
       subject
-      expect(json_data["attributes"]["rent-user-id"]).to eq(new_rent_user.id)
+      expect(json_data["attributes"]["title"]).to eq("Go言語でつくるインタプリタ")
     end
   end
 

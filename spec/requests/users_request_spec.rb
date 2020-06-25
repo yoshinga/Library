@@ -3,15 +3,6 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   let(:secret) { 'secret_key' }
   let(:user) { create(:user) }
-  let (:create_params) do
-    {
-      users: {
-        role: '1',
-        nickname: 'super_great_name',
-        uid: '1',
-      }
-    }
-  end
 
   before do
     Token.create(label: "awesome_system", key: secret)
@@ -21,9 +12,9 @@ RSpec.describe "Users", type: :request do
     let (:create_params) do
       {
         users: {
-          role: '1',
-          nickname: 'super_great_name',
           uid: '1',
+          role: '1',
+          nickname: 'bob',
         }
       }
     end
