@@ -54,7 +54,7 @@ class BooksController < ApplicationController
   end
 
   def rent_book
-    book.update_attribute(
+    book.update_attributes(
       :rent_user_id, rent_params["uid"],
       :latest_rent_date, rent_params["latest_rent_date"]
     )
