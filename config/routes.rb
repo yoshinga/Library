@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       patch :rent_book, as: 'rent'
       patch :return_book, as: 'return'
     end
+    collection do
+      post :predictive_search
+    end
   end
   resources :publishers
   resources :comments, only: [:create, :update, :destroy]

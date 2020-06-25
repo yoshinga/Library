@@ -172,4 +172,21 @@ RSpec.describe "Books", type: :request do
       expect(response.status).to eq(200)
     end
   end
+
+  describe '#predictive_search' do
+    let(:params) do
+      {
+        target: 'ruby'
+      }
+    end
+
+    subject do
+      post predictive_search_books_path, params: params, headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should return proper response' do
+      subject
+      expect(response.status).to eq(200)
+    end
+  end
 end

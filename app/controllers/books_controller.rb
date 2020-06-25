@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, except: [:index, :create]
+  require 'net/http'
+  before_action :set_book, only: [:show, :update, :destroy, :rent_book, :return_book]
 
   attr_reader :book
 
@@ -20,22 +21,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    # items = predictive_search["items"].first(5)
-    # items_volume = items.map{ |item| item["volumeInfo"] }
-
     created_book = Book.create!(book_params)
-
-    # created_book = Book.create! do |book|
-    #   book.title = items_volume[1]["title"]
-    #   book.price = items[1]["saleInfo"]["listPrice"]["amount"]
-    #   book.author = items_volume[1]["authors"][1]
-    #   book.link = items_volume[1]["infoLink"]
-    #   book.publication_date = items_volume[1]["publishedDate"]
-    #   book.owner_id = book_params["owner_id"]
-    #   book.publisher_id = book_params["publisher_id"]
-    #   book.rent_user_id = book_params["rent_user_id"]
-    #   book.status = book_params["status"]
-    # end
 
     render json: created_book, status: :created
   rescue => e
@@ -70,12 +56,29 @@ class BooksController < ApplicationController
     render json: "error: #{e}", status: :bad_request
   end
 
+  def predictive_search
+    items = http(params["target"])["items"].first(5)
+    render json: items, status: :ok if items
+  rescue => e
+    render json: "error: #{e}", status: :bad_request
+
+    # created_book = Book.create! do |book|
+    #   book.title = items_volume[1]["title"]
+    #   book.price = items[1]["saleInfo"]["listPrice"]["amount"]
+    #   book.author = items_volume[1]["authors"][1]
+    #   book.link = items_volume[1]["infoLink"]
+    #   book.publication_date = items_volume[1]["publishedDate"]
+    #   book.owner_id = book_params["owner_id"]
+    #   book.publisher_id = book_params["publisher_id"]
+    #   book.rent_user_id = book_params["rent_user_id"]
+    #   book.status = book_params["status"]
+    # end
+  end
+
   private
 
-  def predictive_search
-    require 'net/http'
-    params = 'ruby'
-    uri = URI.parse("https://www.googleapis.com/books/v1/volumes\?q\=#{params}")
+  def http(params)
+    uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{params}")
 
     begin
       http = Net::HTTP.new(uri.host, uri.port)
