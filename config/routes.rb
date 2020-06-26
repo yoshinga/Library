@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     collection do
       post :predictive_search
+      post :create_book_search
     end
   end
   resources :publishers

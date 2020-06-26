@@ -61,18 +61,15 @@ class BooksController < ApplicationController
     render json: items, status: :ok if items
   rescue => e
     render json: "error: #{e}", status: :bad_request
+  end
 
-    # created_book = Book.create! do |book|
-    #   book.title = items_volume[1]["title"]
-    #   book.price = items[1]["saleInfo"]["listPrice"]["amount"]
-    #   book.author = items_volume[1]["authors"][1]
-    #   book.link = items_volume[1]["infoLink"]
-    #   book.publication_date = items_volume[1]["publishedDate"]
-    #   book.owner_id = book_params["owner_id"]
-    #   book.publisher_id = book_params["publisher_id"]
-    #   book.rent_user_id = book_params["rent_user_id"]
-    #   book.status = book_params["status"]
-    # end
+  def create_book_search
+    created_book = Book.create!(book_params)
+
+    render json: created_book, status: :created
+  rescue => e
+    binding.pry
+    render json: "error: #{e}", status: :bad_request
   end
 
   private

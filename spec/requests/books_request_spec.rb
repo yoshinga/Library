@@ -189,4 +189,35 @@ RSpec.describe "Books", type: :request do
       expect(response.status).to eq(200)
     end
   end
+
+  describe '#create_book_search' do
+    let(:owner) { create(:user) }
+    let(:publisher) { create(:publisher) }
+    let(:params) do
+      {
+        "owner_id"=>owner.id,
+        "publisher_id"=>publisher.id,
+        "rent_user_id"=>nil,
+        "purchaser_id"=>1,
+        "status"=>"0",
+        "title"=>"TCP/IP Sockets in Java",
+        "price"=>"28.95",
+        "author"=>nil,
+        "link"=>"https://play.google.com/store/books/details?id=lfHo7uMk7r4C&source=gbs_api",
+        "latest_rent_date"=>"",
+        "return_date"=>"",
+        "purchase_date"=>"2020-06-26",
+        "publication_date"=>"2011-08-29",
+      }
+    end
+
+    subject do
+      post create_book_search_books_path, params: params, headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should return proper status' do
+      subject
+      expect(response.status).to eq(201)
+    end
+  end
 end
