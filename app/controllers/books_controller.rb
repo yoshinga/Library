@@ -70,7 +70,13 @@ class BooksController < ApplicationController
   end
 
   def create_book_search
-    created_book = Book.create!(book_params)
+    if params["publisher"].present?
+      publisher_id = Publisher.create(
+        publisher: params['publisher']
+      ).id
+      update_book_params = book_params.merge(publisher_id: publisher_id)
+    end
+    created_book = Book.create!(update_book_params || book_params)
 
     render json: created_book, status: :created
   rescue => e

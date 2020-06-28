@@ -232,19 +232,19 @@ RSpec.describe "Books", type: :request do
     let(:publisher) { create(:publisher) }
     let(:params) do
       {
-        "owner_id"=>owner.id,
-        "publisher_id"=>publisher.id,
-        "rent_user_id"=>nil,
-        "purchaser_id"=>1,
-        "status"=>"0",
-        "title"=>"TCP/IP Sockets in Java",
-        "price"=>"28.95",
-        "author"=>nil,
-        "link"=>"https://play.google.com/store/books/details?id=lfHo7uMk7r4C&source=gbs_api",
-        "latest_rent_date"=>"",
-        "return_date"=>"",
-        "purchase_date"=>"2020-06-26",
-        "publication_date"=>"2011-08-29",
+        owner_id: owner.id,
+        rent_user_id: nil,
+        purchaser_id: owner.id,
+        status: '0',
+        price: '3740',
+        title: 'プログラミングTypeScript',
+        author: 'Boris Cherny',
+        publisher: "O'Reilly Japan",
+        link: 'https://www.oreilly.co.jp/books/9784873119045/',
+        latest_rent_date: '',
+        return_date: '',
+        purchase_date: '',
+        publication_date: '2020-03-23',
       }
     end
 
