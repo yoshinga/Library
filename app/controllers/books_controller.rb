@@ -70,7 +70,8 @@ class BooksController < ApplicationController
   end
 
   def create_book_search
-    if params["price"].present? && params["price"].size.in?([2, 3])
+    if params["price"].present? && params["price"]
+        .to_f.round.to_s.size.in?([2, 3])
       params["price"] = params["price"].to_i * 107
     end
 

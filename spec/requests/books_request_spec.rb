@@ -246,6 +246,21 @@ RSpec.describe "Books", type: :request do
         purchase_date: '',
         publication_date: '2020-03-23',
       }
+      # {
+      #   "owner_id"=>"1",
+      #   "rent_user_id"=>nil,
+      #   "purchaser_id"=>"1",
+      #   "status"=>"0",
+      #   "title"=>"Effective Testing with RSpec 3",
+      #   "price"=>"22.99",
+      #   "author"=>"Myron Marston",
+      #   "publisher"=>"Pragmatic Bookshelf",
+      #   "link"=>"https://play.google.com/store/books/details?id=8g5QDwAAQBAJ&source=gbs_api",
+      #   "latest_rent_date"=>"",
+      #   "return_date"=>"",
+      #   "purchase_date"=>"2020-06-28",
+      #   "publication_date"=>"2017-08-30",
+      # }
     end
 
     subject do
