@@ -61,7 +61,7 @@ RSpec.describe "Books", type: :request do
     let(:purchaser) { create(:user) }
     let(:rent_user) { create(:user) }
     let(:publisher) { create(:publisher) }
-    let(:valid_attributes) do
+    let(:pub_id_parameter) do
       {
         owner_id: owner.id,
         publisher_id: publisher.id,
@@ -79,18 +79,55 @@ RSpec.describe "Books", type: :request do
       }
     end
 
-    subject do
-      post books_path, params: valid_attributes, headers: { Authorization: "Bearer #{secret}" }
+    let(:pub_parameter) do
+      {
+        owner_id: owner.id,
+        rent_user_id: rent_user.id,
+        purchaser_id: purchaser.id,
+        status: '0',
+        price: '3740',
+        title: 'プログラミングTypeScript',
+        author: 'Boris Cherny',
+        publisher: "オライリージャパン",
+        link: 'https://www.oreilly.co.jp/books/9784873119045/',
+        latest_rent_date: '',
+        return_date: '',
+        purchase_date: '',
+        publication_date: '2020-03-23',
+      }
     end
 
-    it 'should return created status' do
-      subject
-      expect(response.status).to eq(201)
+    context 'when publisher attribute is :publisher_id' do
+      subject do
+        post books_path, params: pub_id_parameter, headers: { Authorization: "Bearer #{secret}" }
+      end
+
+      it 'should return created status' do
+        subject
+        expect(response.status).to eq(201)
+      end
+
+      it 'should register a book' do
+        expect{ subject }.to change(Book, :count).by(1)
+      end
     end
 
-    it 'should register a book' do
-      expect{ subject }.to change(Book, :count).by(1)
+
+    context 'when publisher attribute is :publisher' do
+      subject do
+        post books_path, params: pub_parameter, headers: { Authorization: "Bearer #{secret}" }
+      end
+
+      it 'should return created status' do
+        subject
+        expect(response.status).to eq(201)
+      end
+
+      it 'should register a book' do
+        expect{ subject }.to change(Book, :count).by(1)
+      end
     end
+
   end
 
   describe '#update' do

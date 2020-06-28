@@ -21,7 +21,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    created_book = Book.create!(book_params)
+    if params["publisher"].present?
+      publisher_id = Publisher.create(
+        publisher: params['publisher']
+      ).id
+      update_book_params = book_params.merge(publisher_id: publisher_id)
+    end
+    created_book = Book.create!(update_book_params || book_params)
 
     render json: created_book, status: :created
   rescue => e
@@ -68,7 +74,6 @@ class BooksController < ApplicationController
 
     render json: created_book, status: :created
   rescue => e
-    binding.pry
     render json: "error: #{e}", status: :bad_request
   end
 
