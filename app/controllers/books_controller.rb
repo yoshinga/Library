@@ -70,12 +70,17 @@ class BooksController < ApplicationController
   end
 
   def create_book_search
+    if params["price"].present? && params["price"].size.in?([2, 3])
+      params["price"] = params["price"].to_i * 107
+    end
+
     if params["publisher"].present?
       publisher_id = Publisher.create(
         publisher: params['publisher']
       ).id
       update_book_params = book_params.merge(publisher_id: publisher_id)
     end
+
     created_book = Book.create!(update_book_params || book_params)
 
     render json: created_book, status: :created

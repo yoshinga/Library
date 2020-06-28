@@ -236,7 +236,7 @@ RSpec.describe "Books", type: :request do
         rent_user_id: nil,
         purchaser_id: owner.id,
         status: '0',
-        price: '3740',
+        price: '37',
         title: 'プログラミングTypeScript',
         author: 'Boris Cherny',
         publisher: "O'Reilly Japan",
