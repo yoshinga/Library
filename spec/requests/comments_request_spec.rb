@@ -24,13 +24,7 @@ RSpec.describe "Comments", type: :request do
 
     it 'should return proper status' do
       subject
-      binding.pry
       expect(response.status).to eq(200)
-    end
-
-    it 'should return proper status' do
-      subject
-      expect(response.status).to eq(201)
     end
   end
 
