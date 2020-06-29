@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     member do
       patch :rent_book, as: 'rent'
       patch :return_book, as: 'return'
+      get :rent_user_books, as: 'rent_user', path: 'user/rent_user_books'
     end
     collection do
       post :predictive_search
       post :create_book_search
-      get :rent_user_books, as: 'rent_user'
     end
   end
   resources :publishers

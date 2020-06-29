@@ -280,7 +280,7 @@ RSpec.describe "Books", type: :request do
     end
 
     subject do
-      get rent_user_books_path(user.uid), headers: { Authorization: "Bearer #{secret}" }
+      get rent_user_book_path(user.uid), headers: { Authorization: "Bearer #{secret}" }
     end
 
     it 'should return 200 status' do
