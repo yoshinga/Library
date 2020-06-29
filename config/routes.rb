@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       post :predictive_search
       post :create_book_search
+      get :rent_user_books, as: 'rent_user'
     end
   end
   resources :publishers

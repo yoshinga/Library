@@ -62,6 +62,16 @@ class BooksController < ApplicationController
     render json: "error: #{e}", status: :bad_request
   end
 
+  def rent_user_books
+    books = Book.where(rent_user_id: params["id"])
+    books.each do |b|
+      b.rent_user = User.find(b.rent_user_id).nickname if b.rent_user_id
+      b.purchaser = User.find(b.purchaser_id).nickname if b.purchaser_id
+      b.publisher_name = b.publisher.publisher
+    end
+    render json: books
+  end
+
   def predictive_search
     items = http(params["target"])["items"].first(5)
     render json: items, status: :ok if items

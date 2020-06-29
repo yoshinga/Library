@@ -272,4 +272,20 @@ RSpec.describe "Books", type: :request do
       expect(response.status).to eq(201)
     end
   end
+
+  describe '#rent_user_books' do
+    before do
+      book
+      create(:book, rent_user_id: user.uid)
+    end
+
+    subject do
+      get rent_user_books_path(user.uid), headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should return 200 status' do
+      subject
+      expect(response.status).to eq(200)
+    end
+  end
 end
