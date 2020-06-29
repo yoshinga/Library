@@ -10,6 +10,30 @@ RSpec.describe "Comments", type: :request do
     Token.create(label: "awesome_system", key: secret)
   end
 
+  describe '#show' do
+    let(:other_book) { create(:book, owner_id: user.id, publisher_id: publisher.id) }
+
+    before do
+      create_list(:comment, 3, book_id: book.id, user_id: user.id)
+      create_list(:comment, 3, book_id: other_book.id, user_id: user.id)
+    end
+
+    subject do
+      get comment_path(book.id), headers: { Authorization: "Bearer #{secret}" }
+    end
+
+    it 'should return proper status' do
+      subject
+      binding.pry
+      expect(response.status).to eq(200)
+    end
+
+    it 'should return proper status' do
+      subject
+      expect(response.status).to eq(201)
+    end
+  end
+
   describe '#create' do
     context 'when correct parameter' do
       let(:valid_params) do

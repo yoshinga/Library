@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :comment do
     association :user
     association :book
-    content { "It was good book" }
+    sequence(:content) { |n| "It was good book #{n}" }
   end
 end
