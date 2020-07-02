@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_001139) do
+ActiveRecord::Schema.define(version: 2020_06_29_072925) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "status", default: 1, null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_001139) do
     t.string "purchaser"
     t.string "owner"
     t.string "publisher_name"
+    t.integer "kind", default: 1
     t.index ["owner_id"], name: "index_books_on_owner_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
     t.index ["purchaser_id"], name: "index_books_on_purchaser_id"

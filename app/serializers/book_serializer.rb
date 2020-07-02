@@ -5,6 +5,7 @@ class BookSerializer < ActiveModel::Serializer
     :purchaser,
     :publisher_name,
     :status,
+    :kind,
     :title,
     :price,
     :author,

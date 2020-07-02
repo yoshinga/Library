@@ -144,6 +144,7 @@ class BooksController < ApplicationController
         :purchaser_id,
         :publisher_id,
         :status,
+        :kind,
         :title,
         :price,
         :author,
